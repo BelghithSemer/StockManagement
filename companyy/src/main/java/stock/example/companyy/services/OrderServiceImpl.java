@@ -2,6 +2,7 @@ package stock.example.companyy.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import stock.example.companyy.config.AutoIncrementUtil;
 import stock.example.companyy.entities.Order;
 import stock.example.companyy.repositories.OrderRepo;
 
@@ -15,7 +16,7 @@ public class OrderServiceImpl implements  IService<Order> {
 
     private final OrderRepo repo;
 
-
+    private AutoIncrementUtil autoIncrementUtil;
     @Override
     public Order Retrieve(int id) {
         return repo.findById(id).orElse(null);
@@ -23,6 +24,7 @@ public class OrderServiceImpl implements  IService<Order> {
 
     @Override
     public Order Create(Order order) {
+        order.setId(autoIncrementUtil.getNextSequence("order_sequence"));
         return repo.save(order);
     }
 

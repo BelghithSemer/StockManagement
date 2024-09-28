@@ -12,9 +12,10 @@ import { FacturePageComponent } from './dashboard/facture-page/facture-page.comp
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CategorysComponent } from './ProductManagement/categorys/categorys.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsComponent } from './ProductManagement/products/products.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ProvidersManagementComponent } from './providers-management/providers-management.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,15 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NavigationBarComponent,
     FacturePageComponent,
     CategorysComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProvidersManagementComponent,
+    OrderManagementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    NgbModule
+    HttpClientModule
   ],
   providers: [
     

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from 'src/app/Models/Category';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -17,7 +16,7 @@ export class CategorysComponent {
   selectedCategory: any = null;
 
   category : Category;
-  constructor(private fb: FormBuilder, private modalService: NgbModal, private ps:ProductService) {
+  constructor(private fb: FormBuilder, private ps:ProductService) {
     this.categoryForm = this.fb.group({
       name: ['', Validators.required],
     });
@@ -30,7 +29,7 @@ export class CategorysComponent {
   ngOnInit(){
     this.ps.GetAllCategorys().subscribe((data)=>{
       this.categories = data;
-      console.log(this.categories);
+      console.log("this.categories");
     });
   }
   // Open the modal
@@ -43,7 +42,7 @@ export class CategorysComponent {
       this.categoryForm.patchValue({ name: category.name });
     }
 
-    this.modalService.open(modalContent, { ariaLabelledBy: 'modal-basic-title' });
+    //this.modalService.open(modalContent, { ariaLabelledBy: 'modal-basic-title' });
   }
 
   // Add or Update Category
@@ -64,7 +63,7 @@ export class CategorysComponent {
       
     }
 
-    this.modalService.dismissAll();
+    //this.modalService.dismissAll();
   }
 
   // Delete Category

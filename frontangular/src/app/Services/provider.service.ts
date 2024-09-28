@@ -16,4 +16,7 @@ export class ProviderService {
   GetAll(){
     return this.http.get<Provider[]>("http://localhost:8081/api/providers");
   }
+  update(prov : Provider){
+    return this.http.put<Provider>('http://localhost:8081/api/providers/'+prov.id,prov);
+  }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Category } from '../Models/Category';
 import { Product } from '../Models/Product';
+import { Order } from '../Models/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,12 @@ export class ProductService {
     return this.http.put<Product>('http://localhost:8081/api/products/'+product.id,product);
   }
 
+  AddOrder(order:Order){
+    return this.http.post<Order>('http://localhost:8081/order/create',order);
+  }
+
+  GetOrders(){
+    return this.http.get<Order[]>('http://localhost:8081/order/show');
+  }
 
 }
