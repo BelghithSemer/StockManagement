@@ -1,6 +1,7 @@
 package stock.example.companyy.entities;
 
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,9 +16,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String username;
+    @javax.persistence.Column(unique = true)
     private String email;
     private String password;
     private int numtel;
